@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="movie-container">
+    <div class="top">
+        <div class="left">
+            <div class="name">
+                {{movie?.name}}
+            </div>
+            <div class="rating">
+
+            </div>
+            <div class="cover">
+                <img [src]="movie?.cover">
+            </div>
+        </div>
+        <div class="right">
+
+        </div>
+    </div>
+    <div class="bottom">
+        <h4 class="title">Reviews</h4>
+        <div class="reviews" *ngIf="movie?.reviews?.length">
+            <div class="review" *ngFor="let review of movie?.reviews">
+                <div class="review-details">
+                    <div class="review-left">
+                        <div class="author">{{review?.author}}</div>
+                        <div class="author_dt">{{review.published_on | date:"dd-MMM-YYYY"}}</div>
+                        <span class="rating-value">{{review.rating}}</span>
+                        <span class="rating-value">{{review.review}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="review" *ngIf="movie?.reviews?.length === 0">
+            <div class="no-reviews">No reviews yet</div>
+        </div>
+    </div>
+</div>
